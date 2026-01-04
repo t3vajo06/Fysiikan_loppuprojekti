@@ -69,38 +69,16 @@ total_distance = df_location["Distance_calc"].sum()
 #Tulostetaan kokonaismatka
 st.write("Kokonaismatka:", round(total_distance, 2), "km")
 
-
-
-
-
-
-
-
-
-
-
-st.subheader("Kiihtyvyyden alipäästösuodatus (y-komponentti)")
-
+#Suodatetun kiihtyvyysdatan komponentin kuvaajan luonti
+st.title("Suodatetun kiihtyvyysdatan y-komponentti")
 fig, ax = plt.subplots(figsize=(12, 4))
-ax.plot(df_acc['Time (s)'], data, label="Raaka data")
 ax.plot(df_acc['Time (s)'], data_filt, label="Suodatettu data")
 ax.set_xlabel("Aika [s]")
-ax.set_ylabel("Kiihtyvyys (m/s²)")
-ax.set_title("Alipäästösuodatettu kiihtyvyys (y-komponentti)")
+ax.set_ylabel("Suodatettu kiihtyvyys (m/s²)")
 ax.grid(True)
 ax.legend()
-
 st.pyplot(fig)
 plt.close(fig)
-
-
-
-
-
-
-
-
-
 
 #Kartta
 lat1 = df_location['Latitude (°)'].mean()
