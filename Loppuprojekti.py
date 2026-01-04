@@ -13,8 +13,8 @@ url = "https://raw.githubusercontent.com/t3vajo06/Fysiikan_loppuprojekti/refs/he
 accelerometer_url = "https://raw.githubusercontent.com/t3vajo06/Fysiikan_loppuprojekti/refs/heads/main/Accelerometer.csv"
 location_url = "https://raw.githubusercontent.com/t3vajo06/Fysiikan_loppuprojekti/refs/heads/main/Location.csv"
 
-df_acc = pd.read_csv("accelerometer_url")
-df_location = pd.read_csv("location_url")
+df_acc = pd.read_csv(accelerometer_url)
+df_location = pd.read_csv(location_url)
 st.title('Fysiikan loppuprojekti')
 
 def butter_lowpass_filter(data, cutoff, nyq, order):
