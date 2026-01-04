@@ -39,6 +39,7 @@ for i in range(n-1):
     if data_filt[i]/data_filt[i+1] < 0:
         jaksot += 0.5
 
+#Tulostetaan suodatettu askelmäärä
 st.write("Askelmäärä laskettuna suodatuksen avulla:", int(jaksot))
 
 #Tulostetaan keskinopeus
@@ -67,6 +68,37 @@ for i in range(len(df_location)-1):
 total_distance = df_location["Distance_calc"].sum()
 #Tulostetaan kokonaismatka
 st.write("Kokonaismatka:", round(total_distance, 2), "km")
+
+
+
+
+
+
+
+
+
+
+
+st.subheader("Kiihtyvyyden alipäästösuodatus (y-komponentti)")
+
+fig, ax = plt.subplots(figsize=(12, 4))
+ax.plot(df_acc['Time (s)'], data, label="Raaka data")
+ax.plot(df_acc['Time (s)'], data_filt, label="Suodatettu data")
+ax.set_xlabel("Aika [s]")
+ax.set_ylabel("Kiihtyvyys (m/s²)")
+ax.set_title("Alipäästösuodatettu kiihtyvyys (y-komponentti)")
+ax.grid(True)
+ax.legend()
+
+st.pyplot(fig)
+plt.close(fig)
+
+
+
+
+
+
+
 
 
 
